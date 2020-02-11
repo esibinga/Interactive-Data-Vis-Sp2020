@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <title>Interactive Data Visualization Tutorial</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>    
+    <h1>Tutorial 1 - Introduction and HTML Table</h1>
+    <section>
+      <h3>Example 1: Native HTML Table</h3>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table">Reference Here</a>
+      <table>
+      <thead>
+        <tr>
+          <th colspan="7">'dataset': 11-minute observation-generated, highly unscientific</th>
+          </tr>
+        <tr>
+          <th>Observation</th>
+          <th>Frequency</th>
+          
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>person</td>
+            <td>20</td>
+          </tr>
+          <tr>
+              <td>has a hood, using it</td>
+              <td>7</td>
+            </tr>          
+            <tr>
+                <td>has a hood, not up</td>
+                <td>7</td>
+              </tr>
+              <tr>
+                  <td>tote bag</td>
+                  <td>3</td>
+                </tr>
+        </tbody>
+      </table>
+    </section>
+    <hr/>
+    <section>
+      <h3>Example 2: HTML Table leveraging D3.js</h3>
+      <table id="d3-table"></table>
+    </section>
+    <script src="../lib/d3.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
