@@ -1,0 +1,24 @@
+body {
+    /* ref: https://fonts.google.com/specimen/Source+Sans+Pro?selection.family=Source+Sans+Pro */
+    font-family: "Source Sans Pro", sans-serif;
+    padding: 1em 3em;
+  }
+  
+  footer{
+      font-size: 10px;
+      text-align: left;
+  }
+
+  .dot {
+    cursor: pointer;
+  }
+  
+  .dot:hover {
+    fill: orange;
+  }
+  
+  .axis-label {
+    font-size: 14px;
+    fill: black;
+    text-anchor: middle;
+  }

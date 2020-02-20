@@ -8,7 +8,7 @@ d3.csv("../data/squirrelActivities.csv", d3.autoType).then(data => {
     const width = window.innerWidth * 0.9;
     const height = window.innerHeight * 0.9,
     paddingInner = 0.2,
-    margin = { top: 20, bottom: 40, left: 60, right: 50 };
+    margin = { top: 20, bottom: 40, left: 70, right: 50 };
     
     // scale X and Y
     const xScale = d3
