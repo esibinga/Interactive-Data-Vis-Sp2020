@@ -42,8 +42,9 @@ function init() {
 
   yScale = d3
   .scaleLinear()
-  //.domain([0, d3.max(state.data, d => d.pf_score)])
-  .domain(d3.extent(state.data, d => d.pf_score)) //y = overall personal freedom score
+  .domain([0, 10])
+    //d3.max(state.data, d => d.pf_score)])
+  //.domain(d3.extent(state.data, d => d.pf_score)) //y = overall personal freedom score
   .range([height - margin.bottom, margin.top]);
 
   // + AXES
@@ -158,7 +159,7 @@ function draw() {
           update
             .transition()
             .duration(1000)
-            .attr("stroke", "red") //changed this to highlight where the transition is wonky
+            //.attr("stroke", "red") //changed this to highlight where the transition is wonky
             .transition()
             .duration(1000)
             .attr("stroke", "lightgrey")
@@ -194,7 +195,8 @@ function draw() {
 }
 
 
-
+// This would be much better with a hover effect so that you can see which country
+// is which, or at the very least labels on each point. Couldn't figure it out for this time
 
 
 
