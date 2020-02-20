@@ -121,7 +121,7 @@ function draw() {
 
  const dot = svg
    .selectAll("circle") //was (".dot")
-   .data(filteredData, d => d.name)
+   .data(filteredData, d => d.region === state.selection)
    .join(
      enter => 
        // is something supposed to go here?
