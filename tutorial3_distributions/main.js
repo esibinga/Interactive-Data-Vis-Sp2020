@@ -121,7 +121,8 @@ function draw() {
 
  const dot = svg
    .selectAll("circle") //was (".dot")
-   .data(filteredData, d => d.region === state.selection)
+   .data(filteredData, d => d.countries)
+   //.data(filteredData, d => d.region === state.selection)
    .join(
      enter => 
        // is something supposed to go here?
@@ -172,21 +173,23 @@ function draw() {
             .duration(700)
             .attr("cy", height)
             .remove()
-        )
+        ))
 //couldn't get the update to work -- i tried making all my spacing exactly the same, but that didn't have a noticeable effect
 // raises the question: why do we need to do update => update.call(update => update.transition...) **that seems like so many in a row!
 
 
  //trying to add country label to each point, doesn't seem to have done anything that i can see
-    .selectAll("text")
-    .data(state.data, d => d.countries)
-    .enter()
-    .append("text")
+    svg.selectAll("text.label")
+    .data(filteredData, d => d.countries)
+    .join("text")
+    .attr("class","label")
     //.text((d) => (d[0] + ", " + d[1]))
-    .attr("cx", d => xScale(d.pf_ss_women))
-    .attr("cy", d => yScale(d.pf_score))
-    .attr("fill", "black")   
-    );
+    .attr("x", d => xScale(d.pf_ss_women))
+    .attr("y", d => yScale(d.pf_score))
+    .attr("fill", "gray")
+    .attr("font-size", "10px")
+    .text(d => d.countries)   
+
 
    // + HANDLE ENTER SELECTION
   //     update => update, // + HANDLE UPDATE SELECTION
