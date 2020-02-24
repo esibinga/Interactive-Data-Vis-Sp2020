@@ -152,7 +152,7 @@ function draw() {
           enter
             .transition()
             .delay(d => 200 * d.pf_ss_women)
-            .duration(1000)
+            .duration(500)
             .attr("opacity", 0.5)
             //.attr("cx", d => xScale(d.pf_ss_women))
         ), 
