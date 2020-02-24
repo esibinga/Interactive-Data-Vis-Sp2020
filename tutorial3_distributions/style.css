@@ -9,6 +9,15 @@ body {
       text-align: left;
   }
 
+text.label{
+  opacity: 0;
+}
+
+text.label:hover{
+  opacity: 1;
+}
+
+
   .dot {
     cursor: pointer;
   }

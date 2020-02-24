@@ -130,7 +130,7 @@ function draw() {
        .append("circle")
        .attr("class", "circle") //was .attr("class", "dot")
        .attr("stroke", "lightgrey")
-       .attr("opacity", 0.5)
+       .attr("opacity", 0)
        .attr("fill", d=> {
           if (d.region === "Caucasus & Central Asia") return "#a6cee3";
           else if (d.region === "East Asia") return "#1f78b4";
@@ -146,13 +146,15 @@ function draw() {
         })
         .attr("r", radius)
         .attr("cy", d => yScale(d.pf_score))
-        .attr("cx", d => margin.left)
+        .attr("cx", d => xScale(d.pf_ss_women))
+        //.attr("cx", d => margin.left)
         .call(enter =>
           enter
             .transition()
             .delay(d => 200 * d.pf_ss_women)
-            .duration(500)
-            .attr("cx", d => xScale(d.pf_ss_women))
+            .duration(1000)
+            .attr("opacity", 0.5)
+            //.attr("cx", d => xScale(d.pf_ss_women))
         ), 
       update =>
         update
@@ -169,9 +171,9 @@ function draw() {
         exit.call(exit =>
           exit
             .transition()
-            .delay(d => 75 * d.pf_score)
+            .delay(d => 200 * d.pf_score)
             .duration(700)
-            .attr("cy", height)
+            .attr("opacity", 0)
             .remove()
         ))
 //couldn't get the update to work -- i tried making all my spacing exactly the same, but that didn't have a noticeable effect
@@ -188,6 +190,7 @@ function draw() {
     .attr("y", d => yScale(d.pf_score))
     .attr("fill", "gray")
     .attr("font-size", "10px")
+   // .attr("opacity", 0.5)
     .text(d => d.countries)   
 
 
