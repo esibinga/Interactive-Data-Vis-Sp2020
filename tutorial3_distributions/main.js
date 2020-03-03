@@ -191,7 +191,14 @@ function draw() {
     .attr("fill", "gray")
     .attr("font-size", "10px")
    // .attr("opacity", 0.5)
-    .text(d => d.countries)   
+    .text(d => d.countries)  
+    
+    // svg.selectAll("text.label")
+    // .attr("x", 8)
+    // .attr("y", .5)
+    // .text("Hover to see country names.")
+    // .attr("fill", "gray")
+    // .attr("font-size", "11px")
 
 
    // + HANDLE ENTER SELECTION
