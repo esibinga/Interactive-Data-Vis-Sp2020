@@ -4,11 +4,28 @@
     <title>Interactive Data Visualization Tutorial</title>
     <link rel="stylesheet" href="./style.css">
   </head>
-  <body>
-    Welcome to Interactive Data Visualization Tutorials
+  <h1>
+    Climate Change Indicators: Temperature Extremes
+    </h1>
+    <body>
+    Where are "unusually hot" days becoming more frequent?
+    <br>
+    <br>
     <div id="hover-content"> </div>
     <div id="d3-container"> </div>
     <script src="../lib/d3.js"></script>
     <script src="main.js"></script>
-  </body>
+    <br>
+    </body>
+  <footer>
+      How do I interpret the "Change" number? 
+      <br><br>
+      "Unusually hot" means temperatures hotter 
+      than the 95th percentile temperatures at that location from 1948-2015. 
+      A change of 32.14 means that there are now about 32 more days per year in that
+      location that are hotter than 5% of hottest days from 1948-2015. A change of 
+      -16.18 means that the location is seeing about 16 fewer days per year that 
+      reach the historic 5% hottest mark. 
+      Data is sourced from <a href="https://www.epa.gov/climate-indicators/climate-change-indicators-high-and-low-temperatures">The Environmental Protection Agency</a>.
+      </footer>
 </html>

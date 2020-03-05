@@ -1,6 +1,6 @@
 body {
     /* ref: https://fonts.google.com/specimen/Source+Sans+Pro?selection.family=Source+Sans+Pro */
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
     padding: 1em 3em;
   }
   
@@ -11,4 +11,8 @@ body {
   
   path.state {
     stroke: black;
+  }
+
+  footer {
+      font-size: 13px;
   }
