@@ -35,7 +35,7 @@ Promise.all([
 ]).then(([geojson, extremes]) => {
   state.geojson = geojson;
   state.extremes = extremes;
-  console.log("state: ", state);
+  //console.log("state: ", state);
   init();
 });
 
