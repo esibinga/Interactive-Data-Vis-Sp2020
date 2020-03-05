@@ -12,7 +12,7 @@ let svg;
 
 /***
  * APPLICATION STATE
- * */
+ *  */
 let state = {
   geojson: null,
   extremes: null,
