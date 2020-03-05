@@ -85,21 +85,31 @@ function init() {
     var heatColors = d3.scaleLinear()
     .domain(d3.extent(state.extremes, d => d['Change in 95 percent Days'],2))
     .range(["blue", "yellow"]);
-  
-   svg
+    svg
     .selectAll("circle")
     .data(state.extremes)
-    .join("circle")
-    .attr("r", 5)
-    .attr("opacity", 0.8)
-    .attr("fill", d => {
-      return heatColors(d['Change in 95 percent Days'])
-    })
-    .attr("transform", d=>  {
-      console.log(projection(d.Long, d.Lat))
-      const [x,y] = projection([d.Long, d.Lat]);
-      return `translate(${x-100}, ${y+20})`; //when these circles are mapped, translate the y-value down 20 pixels so that it lines up correctly with the underlying map
-    })
+    .join(
+        enter =>
+          enter
+          .append("circle")
+          .attr("class", "circle")
+          .attr("r", 5)
+          .attr("opacity", 0)
+          .attr("fill", d => {
+            return heatColors(d['Change in 95 percent Days'])
+          })
+          .attr("transform", d=>  {
+             //console.log(projection(d.Long, d.Lat))
+             const [x,y] = projection([d.Long, d.Lat]);
+             return `translate(${x-100}, ${y+20})`; //when these circles are mapped, translate the y-value down 20 pixels so that it lines up correctly with the underlying map
+          })
+         .call(enter => 
+            enter
+             .transition()
+             .delay(d => -200 * d['Change in 95 percent Days'])
+             .duration(5000)
+             .attr("opacity", 0.8)
+    )
     .on("mouseover", function(d) {
       //console.log("this", this);
       d3.select(this)
@@ -114,8 +124,7 @@ function init() {
       .attr("r", 5)
       .attr("opacity", 0.8);
       draw();
-    });
-
+    }))
 
 //test lat long
     svg.on("mousemove", () => {
@@ -150,7 +159,7 @@ function draw() {
          // each d is [key, value] pair
          d[1] // check if value exist
            ? `${d[0]}: ${d[1]}` // if they do, fill them in
-           : "No data available for this point" // otherwise, print this message (or null to show nothing)
+           : `${d[0]}: \xa0` // otherwise, print this message (or null to show nothing)
      ); 
         // This ^ would look much better if I could print "Change in 95% Days" for the final variable, but can't figure out how to 
         // print a message for one of them instead of just the variable name for each key in "d" 
