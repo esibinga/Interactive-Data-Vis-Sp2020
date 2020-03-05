@@ -10,7 +10,7 @@ const width = window.innerWidth * 0.9,
  * All these variables are empty before we assign something to them.*/
 let svg;
 
-/**
+/***
  * APPLICATION STATE
  * */
 let state = {
