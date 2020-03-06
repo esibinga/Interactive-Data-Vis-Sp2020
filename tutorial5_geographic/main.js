@@ -106,9 +106,9 @@ function init() {
          .call(enter => 
             enter
              .transition()
-             .delay(d => -200 * d['Change in 95 percent Days'])
-             .duration(5000)
-             .attr("opacity", 0.8)
+             .delay(d => 300 * Math.abs(d['Change in 95 percent Days']))
+             .duration(3000)
+             .attr("opacity", (d => 0.5 + 0.5* Math.abs(d['Change in 95 percent Days'])))
     )
     .on("mouseover", function(d) {
       //console.log("this", this);
